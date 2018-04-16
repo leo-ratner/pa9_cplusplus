@@ -8,6 +8,7 @@
 #include <QTextCursor>
 #include <QTextBlock>
 #include "garden.h"
+#include "highlighter.h"
 
 /*
  * Note: This part of the code is mostly just based off of the example text editor tutorial
@@ -61,6 +62,8 @@ public slots:
 
 private:
     Ui::CommandEditor *ui;
+
+    Highlighter* highlighter; //syntax highlighting.
 
     QString currentFile; //stores the current file name.
 

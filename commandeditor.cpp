@@ -10,11 +10,14 @@ CommandEditor::CommandEditor(QWidget *parent) :
     ui->setupUi(this);
     this->valid = false; //assume invalid file on first startup.
     this->startPoint = 0; //initially, assume start at 0.
+
+    highlighter = new Highlighter(ui->textEdit->document());
 }
 
 CommandEditor::~CommandEditor()
 {
     delete ui;
+    delete highlighter;
 }
 
 void CommandEditor::on_actionNew_triggered()
@@ -137,8 +140,8 @@ QString CommandEditor::nextCommand()
     //loop, break out if we hit a non-blank line
     while(!tracker->atEnd()){
         cur = tracker->block().text(); //find what our current text is.
-        //if cur is no longer just whitespace, immediately break.
-        if(cur != "" && !cur.trimmed().isEmpty()) break;
+        //if cur is no longer just whitespace (or a comment), immediately break.
+        if(cur != "" && !cur.trimmed().isEmpty() && !cur.trimmed().startsWith("%")) break;
         tracker->movePosition(QTextCursor::Down);
     }
 
@@ -270,7 +273,7 @@ void CommandEditor::nextNonEmpty(QTextCursor &cur)
     //int offset = cur.position();
 
     while(!cur.atEnd()){
-        if(!cur.block().text().trimmed().isEmpty()) break;
+        if(!cur.block().text().trimmed().isEmpty() && !cur.block().text().trimmed().startsWith("%")) break;
         //offset++;
         cur.movePosition(QTextCursor::Down); //attempt to move down.
     }

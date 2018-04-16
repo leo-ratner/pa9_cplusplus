@@ -38,7 +38,8 @@ SOURCES += \
     commandtextedit.cpp \
     linereader.cpp \
     colormap.cpp \
-    fungus.cpp
+    fungus.cpp \
+    highlighter.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -55,7 +56,8 @@ HEADERS += \
     commandtextedit.h \
     linereader.h \
     colormap.h \
-    fungus.h
+    fungus.h \
+    highlighter.h
 
 FORMS += \
         mainwindow.ui \
