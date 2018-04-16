@@ -163,7 +163,7 @@ QImage Garden::writeToImage(ColorMap* colMap)
                 for(int i = 0; i < 5; i++){
                     for(int j = 0; j < 5; j++){
                         //if the grid isn't null, make sure the background is a brown color.
-                        img.setPixelColor(x*5+j, y*5+i, QColor(86, 83, 80));
+                        img.setPixelColor(x*5+j, y*5+i, QColor(30, 30, 28));
                         //need another nullptr check here.
                         if (grid[y][x]->getGrid()[j][i] == true){ //I HOPE THIS WORKS DAMMIT
 
