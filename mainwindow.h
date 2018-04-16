@@ -5,6 +5,7 @@
 #include <QTimer>
 #include <QSettings>
 #include "interpreter.h"
+#include "aboutdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -29,7 +30,7 @@ private slots:
 
     void on_actionSave_triggered();
 
-    void on_actionSave_As_triggered();
+    void on_actionSaveAs_triggered();
 
     void on_actionOpen_triggered();
 
@@ -44,8 +45,14 @@ private slots:
 
     void doSimStep();
 
+    //void on_actionAbout_triggered();
+
+    void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
+
+    AboutDialog* about; //about window.
 
 private:
     //garden-related private vars.

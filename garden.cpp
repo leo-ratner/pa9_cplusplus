@@ -50,14 +50,20 @@ void Garden::growAt(int x, int y){
 }
 
 void Garden::removeAt(int x, int y){
-    delete grid[y][x];
-    grid[y][x] = nullptr; //for some reason, have to manually reset pointer.
-    //what the fuck? why does this ONLY work on point 0,0?
+    //make sure we're in bounds first.
+    if(y >= 0 && y < grid.size() && x >= 0 && x < grid[0].size()){
+        delete grid[y][x];
+        grid[y][x] = nullptr; //for some reason, have to manually reset pointer.
+    }
+
 }
 
 Plant* Garden::getPlantAt(int x, int y)
 {
+    if(y >= 0 && y < grid.size() && x >= 0 && x < grid[0].size()){
     return this->grid[y][x];
+    }
+    return nullptr;
 }
 
 //takes name/type, loops over all plants and runs callback if the conditions match.

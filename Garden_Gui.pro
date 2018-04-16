@@ -39,7 +39,8 @@ SOURCES += \
     linereader.cpp \
     colormap.cpp \
     fungus.cpp \
-    highlighter.cpp
+    highlighter.cpp \
+    aboutdialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -57,9 +58,11 @@ HEADERS += \
     linereader.h \
     colormap.h \
     fungus.h \
-    highlighter.h
+    highlighter.h \
+    aboutdialog.h
 
 FORMS += \
         mainwindow.ui \
     commandeditor.ui \
-    renderer.ui
+    renderer.ui \
+    aboutdialog.ui

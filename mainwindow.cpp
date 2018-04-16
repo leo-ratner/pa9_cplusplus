@@ -42,7 +42,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionCopy, SIGNAL(triggered()), ui->editor, SLOT(on_actionCopy_triggered()));
     connect(ui->actionPaste, SIGNAL(triggered()), ui->editor, SLOT(on_actionPaste_triggered()));
 
-    //finally, create settings and stuff.
+    //create the "about" window.
+
 }
 
 MainWindow::~MainWindow()
@@ -63,7 +64,7 @@ void MainWindow::on_actionSave_triggered()
     this->ui->editor->save();
 }
 
-void MainWindow::on_actionSave_As_triggered()
+void MainWindow::on_actionSaveAs_triggered()
 {
     this->ui->editor->saveAs();
 }
@@ -185,4 +186,12 @@ void MainWindow::doSimStep()
             this->ui->ResetButton->setEnabled(!isRunning);
     }
 
+}
+
+
+//shitty last-minute about window.
+void MainWindow::on_actionAbout_triggered()
+{
+    about = new AboutDialog(this);
+    about->show();
 }
